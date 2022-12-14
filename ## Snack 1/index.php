@@ -60,9 +60,8 @@ $partite_array = array (
     <h1>PARTITE GIOCATE OGGI</h1>
     <ul>
     <?php
-    $partite_array_len = count($partite_array);
-    for ($i=0; $i < $partite_array_len ; $i++) { 
-        echo"<li>$partite_array[$i]["partita"]["casa"]["nome"] - $partite_array[$i]["partita"]["ospite"]["nome"] </li>";
+    for ($i=0; $i < count($partite_array); ; $i++) { 
+        echo"<li>$partite_array[$i]["partita"]["casa"]["nome"] - $partite_array[$i]["partita"]["ospite"]["nome"] | $partite_array[$i]["partita"]["casa"]["score"] - $partite_array[$i]["partita"]["ospite"]["score"] </li>";
     };
     ?>
     </ul>
