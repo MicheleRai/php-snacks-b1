@@ -8,7 +8,7 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
 <?php
     $my_array = [];
     do {
-        $new_numb = rand(0, 1000);
+        $new_numb = rand(0, 100);
         if (in_array($new_numb, $my_array)) {
             print_r('trovata una copia');
         }else {
@@ -31,7 +31,7 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
     <ul>
         <?php
         for ($i=0; $i < count($my_array); $i++) { 
-            echo "<li>".$my_array[$i]."</li>";
+            echo "<li>" . "<strong>" . $my_array[$i] . "</strong>" . " </li>";
         };
         ?>
     </ul>
