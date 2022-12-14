@@ -1,12 +1,11 @@
 <?php
 /*
-Createvi una cartella con il nome della repo e una sottocartella per ciascuno snack.
 ## Snack 1
 Creiamo un array contenente le partite di basket di un’ipotetica tappa del calendario. Ogni array avrà una squadra di casa e una squadra ospite, punti fatti dalla squadra di casa e punti fatti dalla squadra ospite. Stampiamo a schermo tutte le partite con questo schema.
 Olimpia Milano - Cantù | 55-60
 */ 
 $partite_array = array (
-    'partita1' => array (
+    'partita' => array (
         'casa' => array (
             'nome' => 'Milano',
             'score' => 66,
@@ -16,7 +15,7 @@ $partite_array = array (
             'score' => 100,
         ),  
     ),
-    'partita2' => array (
+    'partita' => array (
         'casa' => array (
             'nome' => 'Roma',
             'score' => 15,
@@ -26,7 +25,7 @@ $partite_array = array (
             'score' => 47,
         ), 
     ),
-    'partita3' => array (
+    'partita' => array (
         'casa' => array (
             'nome' => 'Bologna',
             'score' => 110,
@@ -36,7 +35,7 @@ $partite_array = array (
             'score' => 85,
         ),
     ),
-    'partita4' => array (
+    'partita' => array (
         'casa' => array (
             'nome' => 'Genova',
             'score' => 100,
@@ -58,6 +57,15 @@ $partite_array = array (
     <title>Snacks</title>
 </head>
 <body>
-    
+    <h1>PARTITE GIOCATE OGGI</h1>
+    <ul>
+    <?php
+    $partite_array_len = count($partite_array);
+    for ($i=0; $i < $partite_array_len ; $i++) { 
+        echo"<li>$partite_array[$i]["partita"]["casa"]["nome"] - $partite_array[$i]["partita"]["ospite"]["nome"] </li>";
+    };
+    ?>
+    </ul>
+
 </body>
 </html>
