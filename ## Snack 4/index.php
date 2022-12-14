@@ -4,6 +4,20 @@
 Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
 */ 
 ?>
+
+<?php
+    $my_array = [];
+    do {
+        $new_numb = rand(0, 1000);
+        if (in_array($new_numb, $my_array)) {
+            print_r('trovata una copia');
+        }else {
+            
+            array_push($my_array, $new_numb);
+        };
+    } while (count($my_array) <= 14);
+?>
+<?= '<pre>' . print_r($my_array, true) . '</pre>' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +27,13 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
     <title>Snacks</title>
 </head>
 <body>
-    
+    <h1>GENERATORE NUMERI RANDOM</h1>
+    <ul>
+        <?php
+        for ($i=0; $i < count($my_array); $i++) { 
+            echo "<li>".$my_array[$i]."</li>";
+        };
+        ?>
+    </ul>
 </body>
 </html>
