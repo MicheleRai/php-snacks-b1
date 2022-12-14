@@ -9,9 +9,9 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
     if (isset($_GET['name'])) {
         $name = $_GET['name'];
         if (strlen($name) > 3) {
-            $messageName = 'OK lunghezza nome valida';
+            $messageName = 'OK lunghezza nome valida!';
         }else {
-            $messageName = 'Per favore inserire un nome superiore a 3 caratteri'
+            $messageName = 'Per favore inserire un nome superiore a 3 caratteri';
         }
     }else {
         $name = '';
@@ -31,6 +31,23 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
 		$mail = '';
 		$messageMail = 'Mail non inserita';
 	};
+    if (isset($_GET['age'])) {
+        $age = $_GET['age'];
+        if (is_numeric($age)) {
+            $messageAge = 'OK eta inserita correttamente!';
+        }else {
+            $messageAge = 'Per piacere verificare la corretta immisone dell eta';
+        }
+
+    }else {
+        $age = '';
+		$messageAge = 'Eta non inserita';
+    }
+    if (($messageName == 'OK lunghezza nome valida!') && ($messageMail == 'OK mail valida!') && ($messageAge == 'OK eta inserita correttamente!')) {
+        $message = 'Accesso Riuscito!' ;
+    }else {
+        $message = 'Accesso Negato!' ;
+    };
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,14 +61,19 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
     <h1>EFFETTUA QUI LA TUA REGISTRAZIONE</h1>
     <form action="" method="get">
         <label for="name">Inserisci il tuo nome</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" value= "<?= $name ?>">
+
 		<label for="mail">Inserisci la tua mail</label>
 		<input type="text" name="mail" id="mail" value="<?= $mail ?>">
+
+        <label for="age">Inserisci la tua eta</label>
+        <input type="text" name="age" id="age" value= "<?= $age ?>">
+
 		<button>registrati</button>
 	</form>
 
-	<h3><?= $messageMail ?></h3>
     <h3><?= $messageName ?></h3>
+	<h3><?= $messageMail ?></h3>
     <h3><?= $messageAge ?></h3>
     <h1><?= $message ?></h1>
 </body>
